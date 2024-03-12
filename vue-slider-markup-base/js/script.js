@@ -7,6 +7,7 @@ createApp({
         return {
             currentImage: 0,
             message: 'hello',
+            isActive: true,
             slides: [
                 {
                     image: 'img/01.webp',
@@ -47,7 +48,10 @@ createApp({
                 this.currentImage = this.slides.length-1
             } 
         }
-    }
+    },
+    mounted() {
+        console.log(`the component is now mounted.`)
+      }
 }).mount('#app')
 
 
