@@ -34,24 +34,34 @@ createApp({
         }
     },
     methods: {
-        nextImage(){
+        nextImage() {
             this.currentImage++
             //console.log(this.slides.length);
             if (this.currentImage === this.slides.length) {
                 this.currentImage = 0
             }
         },
-        prevImage(){
+        prevImage() {
             this.currentImage--
             //console.log(this.slides.length);
             if (this.currentImage < 0) {
-                this.currentImage = this.slides.length-1
-            } 
+                this.currentImage = this.slides.length - 1
+            }
+        },
+        next() {
+            this.currentImage++
         }
     },
     mounted() {
-        console.log(`the component is now mounted.`)
-      }
+         console.log(this.currentImage);;
+        //let currentImage = 0;
+        this.interval = setInterval(() => { this.nextImage() }, 3000)
+        //this.interval = setInterval(function(){ this.next() }, 3000)
+        // setInterval(function () {
+        //     console.log(increment());
+        // }, 3000)
+       //this.currentImage = currentImage
+    }
 }).mount('#app')
 
 
