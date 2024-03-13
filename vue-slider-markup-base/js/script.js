@@ -50,18 +50,28 @@ createApp({
         },
         next() {
             this.currentImage++
+        },
+        stopAutoplay(){
+            clearInterval(this.interval)
+        },
+        startAutoplay(){
+            this.interval = setInterval(() => { this.nextImage() }, 3000)
+            //this.interval = setInterval(function(){ this.next() }, 3000)
+            // setInterval(function () {
+            //     console.log(increment());
+            // }, 3000)
+           //this.currentImage = currentImage
+           
+           
         }
+        
+
     },
     mounted() {
-         console.log(this.currentImage);;
+         //console.log(this.currentImage);;
         //let currentImage = 0;
-        this.interval = setInterval(() => { this.nextImage() }, 3000)
-        //this.interval = setInterval(function(){ this.next() }, 3000)
-        // setInterval(function () {
-        //     console.log(increment());
-        // }, 3000)
-       //this.currentImage = currentImage
-    }
+        this.startAutoplay()
+    } 
 }).mount('#app')
 
 
